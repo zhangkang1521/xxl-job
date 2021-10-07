@@ -49,7 +49,7 @@ public class SampleXxlJob {
     /**
      * 2、分片广播任务
      */
-    @XxlJob("shardingJobHandler")
+    // @XxlJob("shardingJobHandler")
     public void shardingJobHandler() throws Exception {
 
         // 分片参数
@@ -73,7 +73,7 @@ public class SampleXxlJob {
     /**
      * 3、命令行任务
      */
-    @XxlJob("commandJobHandler")
+    // @XxlJob("commandJobHandler")
     public void commandJobHandler() throws Exception {
         String command = XxlJobHelper.getJobParam();
         int exitValue = -1;
@@ -124,7 +124,7 @@ public class SampleXxlJob {
      *      "method: get\n" +
      *      "data: content\n";
      */
-    @XxlJob("httpJobHandler")
+    // @XxlJob("httpJobHandler")
     public void httpJobHandler() throws Exception {
 
         // param parse
@@ -238,7 +238,7 @@ public class SampleXxlJob {
     /**
      * 5、生命周期任务示例：任务初始化与销毁时，支持自定义相关逻辑；
      */
-    @XxlJob(value = "demoJobHandler2", init = "init", destroy = "destroy")
+    // @XxlJob(value = "demoJobHandler2", init = "init", destroy = "destroy")
     public void demoJobHandler2() throws Exception {
         XxlJobHelper.log("XXL-JOB, Hello World.");
     }

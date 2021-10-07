@@ -27,6 +27,8 @@ public class XxlJobSpringExecutor extends XxlJobExecutor implements ApplicationC
     private static final Logger logger = LoggerFactory.getLogger(XxlJobSpringExecutor.class);
 
 
+    // SmartInitializingSingleton中只有一个接口afterSingletonsInstantiated()，
+    // 其作用是是 在spring容器管理的所有单例对象（非懒加载对象）初始化完成之后调用的回调接口。
     // start
     @Override
     public void afterSingletonsInstantiated() {
@@ -81,6 +83,8 @@ public class XxlJobSpringExecutor extends XxlJobExecutor implements ApplicationC
         if (applicationContext == null) {
             return;
         }
+
+        // 找出spring容器中所有XxlJob注解的方法
         // init job handler from method
         String[] beanDefinitionNames = applicationContext.getBeanNamesForType(Object.class, false, true);
         for (String beanDefinitionName : beanDefinitionNames) {

@@ -45,6 +45,8 @@ public class ExecutorBizImpl implements ExecutorBiz {
 
     @Override
     public ReturnT<String> run(TriggerParam triggerParam) {
+        // 执行Job
+
         // load old：jobHandler + jobThread
         JobThread jobThread = XxlJobExecutor.loadJobThread(triggerParam.getJobId());
         IJobHandler jobHandler = jobThread!=null?jobThread.getHandler():null;
@@ -52,6 +54,8 @@ public class ExecutorBizImpl implements ExecutorBiz {
 
         // valid：jobHandler + jobThread
         GlueTypeEnum glueTypeEnum = GlueTypeEnum.match(triggerParam.getGlueType());
+
+        // 最简单的bean模式
         if (GlueTypeEnum.BEAN == glueTypeEnum) {
 
             // new jobhandler
@@ -138,6 +142,7 @@ public class ExecutorBizImpl implements ExecutorBiz {
             }
         }
 
+        // 注册Job线程
         // replace thread (new or exists invalid)
         if (jobThread == null) {
             jobThread = XxlJobExecutor.registJobThread(triggerParam.getJobId(), jobHandler, removeOldReason);

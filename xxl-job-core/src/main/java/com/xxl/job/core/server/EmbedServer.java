@@ -64,6 +64,7 @@ public class EmbedServer {
 
 
                 try {
+                    // 启动Netty服务
                     // start server
                     ServerBootstrap bootstrap = new ServerBootstrap();
                     bootstrap.group(bossGroup, workerGroup)
@@ -75,7 +76,7 @@ public class EmbedServer {
                                             .addLast(new IdleStateHandler(0, 0, 30 * 3, TimeUnit.SECONDS))  // beat 3N, close if idle
                                             .addLast(new HttpServerCodec())
                                             .addLast(new HttpObjectAggregator(5 * 1024 * 1024))  // merge request & reponse to FULL
-                                            .addLast(new EmbedHttpServerHandler(executorBiz, accessToken, bizThreadPool));
+                                            .addLast(new EmbedHttpServerHandler(executorBiz, accessToken, bizThreadPool)); // 处理请求
                                 }
                             })
                             .childOption(ChannelOption.SO_KEEPALIVE, true);
@@ -196,7 +197,7 @@ public class EmbedServer {
                 } else if ("/idleBeat".equals(uri)) {
                     IdleBeatParam idleBeatParam = GsonTool.fromJson(requestData, IdleBeatParam.class);
                     return executorBiz.idleBeat(idleBeatParam);
-                } else if ("/run".equals(uri)) {
+                } else if ("/run".equals(uri)) { // 运行Job
                     TriggerParam triggerParam = GsonTool.fromJson(requestData, TriggerParam.class);
                     return executorBiz.run(triggerParam);
                 } else if ("/kill".equals(uri)) {

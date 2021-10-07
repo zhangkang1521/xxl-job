@@ -159,6 +159,7 @@ public class JobThread extends Thread{
 							futureThread.interrupt();
 						}
 					} else {
+						// 执行任务，MethodJobHandler，com.xxl.job.executor.service.jobhandler.SampleXxlJob.demoJobHandler
 						// just execute
 						handler.execute();
 					}
