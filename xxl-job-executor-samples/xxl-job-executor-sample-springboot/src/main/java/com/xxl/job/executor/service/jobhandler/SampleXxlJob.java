@@ -36,13 +36,22 @@ public class SampleXxlJob {
      */
     @XxlJob("demoJobHandler")
     public void demoJobHandler() throws Exception {
-        XxlJobHelper.log("XXL-JOB, Hello World.");
-
-        for (int i = 0; i < 5; i++) {
-            XxlJobHelper.log("beat at:" + i);
-            TimeUnit.SECONDS.sleep(2);
-        }
+        logger.info("demo start");
+        TimeUnit.SECONDS.sleep(20);
+        logger.info("demo end");
+//        throw new RuntimeException("xxx");
+//        XxlJobHelper.log("XXL-JOB, Hello World.");
+//
+//        for (int i = 0; i < 5; i++) {
+//            XxlJobHelper.log("beat at:" + i);
+//            TimeUnit.SECONDS.sleep(2);
+//        }
         // default success
+    }
+
+    @XxlJob("demoJobHandlerChild")
+    public void demoJobHandlerChild() {
+        logger.info("demo child start");
     }
 
 

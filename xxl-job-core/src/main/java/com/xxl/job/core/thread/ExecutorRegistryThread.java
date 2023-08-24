@@ -35,6 +35,7 @@ public class ExecutorRegistryThread {
             return;
         }
 
+        // 注册执行器
         registryThread = new Thread(new Runnable() {
             @Override
             public void run() {

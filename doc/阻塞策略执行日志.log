@@ -1,0 +1,75 @@
+job配置每10s执行一次，任务需要20s执行完成
+
+单机串行
+17:30:16.091 logback [Thread-16] INFO  c.x.j.e.s.jobhandler.SampleXxlJob - demo start
+17:30:36.105 logback [Thread-16] INFO  c.x.j.e.s.jobhandler.SampleXxlJob - demo end
+17:30:36.107 logback [Thread-16] INFO  c.x.j.e.s.jobhandler.SampleXxlJob - demo start
+17:30:56.108 logback [Thread-16] INFO  c.x.j.e.s.jobhandler.SampleXxlJob - demo end
+17:30:56.109 logback [Thread-16] INFO  c.x.j.e.s.jobhandler.SampleXxlJob - demo start
+17:31:16.111 logback [Thread-16] INFO  c.x.j.e.s.jobhandler.SampleXxlJob - demo end
+17:31:16.112 logback [Thread-16] INFO  c.x.j.e.s.jobhandler.SampleXxlJob - demo start
+17:31:36.125 logback [Thread-16] INFO  c.x.j.e.s.jobhandler.SampleXxlJob - demo end
+17:31:36.126 logback [Thread-16] INFO  c.x.j.e.s.jobhandler.SampleXxlJob - demo start
+
+
+丢掉后续任务
+17:33:16.181 logback [Thread-16] INFO  c.x.j.e.s.jobhandler.SampleXxlJob - demo start
+17:33:36.196 logback [Thread-16] INFO  c.x.j.e.s.jobhandler.SampleXxlJob - demo end
+17:33:36.197 logback [Thread-16] INFO  c.x.j.e.s.jobhandler.SampleXxlJob - demo start
+17:33:56.199 logback [Thread-16] INFO  c.x.j.e.s.jobhandler.SampleXxlJob - demo end
+17:33:56.199 logback [Thread-16] INFO  c.x.j.e.s.jobhandler.SampleXxlJob - demo start
+17:34:16.210 logback [Thread-16] INFO  c.x.j.e.s.jobhandler.SampleXxlJob - demo end
+17:34:16.211 logback [Thread-16] INFO  c.x.j.e.s.jobhandler.SampleXxlJob - demo start
+17:34:36.221 logback [Thread-16] INFO  c.x.j.e.s.jobhandler.SampleXxlJob - demo end
+17:34:36.222 logback [Thread-16] INFO  c.x.j.e.s.jobhandler.SampleXxlJob - demo start
+17:34:56.224 logback [Thread-16] INFO  c.x.j.e.s.jobhandler.SampleXxlJob - demo end
+17:35:00.007 logback [Thread-16] INFO  c.x.j.e.s.jobhandler.SampleXxlJob - demo start
+17:35:20.022 logback [Thread-16] INFO  c.x.j.e.s.jobhandler.SampleXxlJob - demo end
+17:35:30.007 logback [Thread-16] INFO  c.x.j.e.s.jobhandler.SampleXxlJob - demo start
+17:35:50.015 logback [Thread-16] INFO  c.x.j.e.s.jobhandler.SampleXxlJob - demo end
+17:36:00.011 logback [Thread-16] INFO  c.x.j.e.s.jobhandler.SampleXxlJob - demo start
+
+
+覆盖之前调度
+17:38:16.016 logback [Thread-19] INFO  c.x.j.e.s.jobhandler.SampleXxlJob - demo end
+17:38:23.008 logback [Thread-19] INFO  c.x.j.e.s.jobhandler.SampleXxlJob - demo start
+17:38:33.010 logback [xxl-rpc, EmbedServer bizThreadPool-449369497] INFO  c.x.job.core.executor.XxlJobExecutor - >>>>>>>>>>> xxl-job regist JobThread success, jobId:1, handler:com.xxl.job.core.handler.impl.MethodJobHandler@273a5a8a[class com.xxl.job.executor.service.jobhandler.SampleXxlJob#demoJobHandler]
+17:38:33.011 logback [Thread-20] INFO  c.x.j.e.s.jobhandler.SampleXxlJob - demo start
+17:38:33.012 logback [Thread-19] INFO  com.xxl.job.core.thread.JobThread - >>>>>>>>>>> xxl-job JobThread stoped, hashCode:Thread[Thread-19,10,main]
+17:38:43.008 logback [xxl-rpc, EmbedServer bizThreadPool-449369497] INFO  c.x.job.core.executor.XxlJobExecutor - >>>>>>>>>>> xxl-job regist JobThread success, jobId:1, handler:com.xxl.job.core.handler.impl.MethodJobHandler@273a5a8a[class com.xxl.job.executor.service.jobhandler.SampleXxlJob#demoJobHandler]
+17:38:43.010 logback [Thread-21] INFO  c.x.j.e.s.jobhandler.SampleXxlJob - demo start
+17:38:43.010 logback [Thread-20] INFO  com.xxl.job.core.thread.JobThread - >>>>>>>>>>> xxl-job JobThread stoped, hashCode:Thread[Thread-20,10,main]
+17:38:53.016 logback [xxl-rpc, EmbedServer bizThreadPool-449369497] INFO  c.x.job.core.executor.XxlJobExecutor - >>>>>>>>>>> xxl-job regist JobThread success, jobId:1, handler:com.xxl.job.core.handler.impl.MethodJobHandler@273a5a8a[class com.xxl.job.executor.service.jobhandler.SampleXxlJob#demoJobHandler]
+17:38:53.016 logback [Thread-22] INFO  c.x.j.e.s.jobhandler.SampleXxlJob - demo start
+17:38:53.016 logback [Thread-21] INFO  com.xxl.job.core.thread.JobThread - >>>>>>>>>>> xxl-job JobThread stoped, hashCode:Thread[Thread-21,10,main]
+17:39:04.000 logback [xxl-rpc, EmbedServer bizThreadPool-449369497] INFO  c.x.job.core.executor.XxlJobExecutor - >>>>>>>>>>> xxl-job regist JobThread success, jobId:1, handler:com.xxl.job.core.handler.impl.MethodJobHandler@273a5a8a[class com.xxl.job.executor.service.jobhandler.SampleXxlJob#demoJobHandler]
+17:39:04.000 logback [Thread-23] INFO  c.x.j.e.s.jobhandler.SampleXxlJob - demo start
+17:39:04.000 logback [Thread-22] INFO  com.xxl.job.core.thread.JobThread - >>>>>>>>>>> xxl-job JobThread stoped, hashCode:Thread[Thread-22,10,main]
+17:39:13.007 logback [xxl-rpc, EmbedServer bizThreadPool-449369497] INFO  c.x.job.core.executor.XxlJobExecutor - >>>>>>>>>>> xxl-job regist JobThread success, jobId:1, handler:com.xxl.job.core.handler.impl.MethodJobHandler@273a5a8a[class com.xxl.job.executor.service.jobhandler.SampleXxlJob#demoJobHandler]
+17:39:13.008 logback [Thread-24] INFO  c.x.j.e.s.jobhandler.SampleXxlJob - demo start
+17:39:13.009 logback [Thread-23] INFO  com.xxl.job.core.thread.JobThread - >>>>>>>>>>> xxl-job JobThread stoped, hashCode:Thread[Thread-23,10,main]
+17:39:23.010 logback [xxl-rpc, EmbedServer bizThreadPool-449369497] INFO  c.x.job.core.executor.XxlJobExecutor - >>>>>>>>>>> xxl-job regist JobThread success, jobId:1, handler:com.xxl.job.core.handler.impl.MethodJobHandler@273a5a8a[class com.xxl.job.executor.service.jobhandler.SampleXxlJob#demoJobHandler]
+17:39:23.011 logback [Thread-25] INFO  c.x.j.e.s.jobhandler.SampleXxlJob - demo start
+17:39:23.011 logback [Thread-24] INFO  com.xxl.job.core.thread.JobThread - >>>>>>>>>>> xxl-job JobThread stoped, hashCode:Thread[Thread-24,10,main]
+17:39:33.006 logback [xxl-rpc, EmbedServer bizThreadPool-449369497] INFO  c.x.job.core.executor.XxlJobExecutor - >>>>>>>>>>> xxl-job regist JobThread success, jobId:1, handler:com.xxl.job.core.handler.impl.MethodJobHandler@273a5a8a[class com.xxl.job.executor.service.jobhandler.SampleXxlJob#demoJobHandler]
+17:39:33.007 logback [Thread-26] INFO  c.x.j.e.s.jobhandler.SampleXxlJob - demo start
+17:39:33.008 logback [Thread-25] INFO  com.xxl.job.core.thread.JobThread - >>>>>>>>>>> xxl-job JobThread stoped, hashCode:Thread[Thread-25,10,main]
+17:39:43.000 logback [xxl-rpc, EmbedServer bizThreadPool-449369497] INFO  c.x.job.core.executor.XxlJobExecutor - >>>>>>>>>>> xxl-job regist JobThread success, jobId:1, handler:com.xxl.job.core.handler.impl.MethodJobHandler@273a5a8a[class com.xxl.job.executor.service.jobhandler.SampleXxlJob#demoJobHandler]
+17:39:43.000 logback [Thread-27] INFO  c.x.j.e.s.jobhandler.SampleXxlJob - demo start
+17:39:43.000 logback [Thread-26] INFO  com.xxl.job.core.thread.JobThread - >>>>>>>>>>> xxl-job JobThread stoped, hashCode:Thread[Thread-26,10,main]
+17:39:54.012 logback [xxl-rpc, EmbedServer bizThreadPool-449369497] INFO  c.x.job.core.executor.XxlJobExecutor - >>>>>>>>>>> xxl-job regist JobThread success, jobId:1, handler:com.xxl.job.core.handler.impl.MethodJobHandler@273a5a8a[class com.xxl.job.executor.service.jobhandler.SampleXxlJob#demoJobHandler]
+17:39:54.013 logback [Thread-28] INFO  c.x.j.e.s.jobhandler.SampleXxlJob - demo start
+17:39:54.013 logback [Thread-27] INFO  com.xxl.job.core.thread.JobThread - >>>>>>>>>>> xxl-job JobThread stoped, hashCode:Thread[Thread-27,10,main]
+17:40:03.011 logback [xxl-rpc, EmbedServer bizThreadPool-449369497] INFO  c.x.job.core.executor.XxlJobExecutor - >>>>>>>>>>> xxl-job regist JobThread success, jobId:1, handler:com.xxl.job.core.handler.impl.MethodJobHandler@273a5a8a[class com.xxl.job.executor.service.jobhandler.SampleXxlJob#demoJobHandler]
+17:40:03.012 logback [Thread-29] INFO  c.x.j.e.s.jobhandler.SampleXxlJob - demo start
+17:40:03.012 logback [Thread-28] INFO  com.xxl.job.core.thread.JobThread - >>>>>>>>>>> xxl-job JobThread stoped, hashCode:Thread[Thread-28,10,main]
+17:40:13.006 logback [xxl-rpc, EmbedServer bizThreadPool-449369497] INFO  c.x.job.core.executor.XxlJobExecutor - >>>>>>>>>>> xxl-job regist JobThread success, jobId:1, handler:com.xxl.job.core.handler.impl.MethodJobHandler@273a5a8a[class com.xxl.job.executor.service.jobhandler.SampleXxlJob#demoJobHandler]
+17:40:13.007 logback [Thread-30] INFO  c.x.j.e.s.jobhandler.SampleXxlJob - demo start
+17:40:13.007 logback [Thread-29] INFO  com.xxl.job.core.thread.JobThread - >>>>>>>>>>> xxl-job JobThread stoped, hashCode:Thread[Thread-29,10,main]
+17:40:23.007 logback [xxl-rpc, EmbedServer bizThreadPool-449369497] INFO  c.x.job.core.executor.XxlJobExecutor - >>>>>>>>>>> xxl-job regist JobThread success, jobId:1, handler:com.xxl.job.core.handler.impl.MethodJobHandler@273a5a8a[class com.xxl.job.executor.service.jobhandler.SampleXxlJob#demoJobHandler]
+17:40:23.008 logback [Thread-31] INFO  c.x.j.e.s.jobhandler.SampleXxlJob - demo start
+17:40:23.008 logback [Thread-30] INFO  com.xxl.job.core.thread.JobThread - >>>>>>>>>>> xxl-job JobThread stoped, hashCode:Thread[Thread-30,10,main]
+17:40:33.019 logback [xxl-rpc, EmbedServer bizThreadPool-449369497] INFO  c.x.job.core.executor.XxlJobExecutor - >>>>>>>>>>> xxl-job regist JobThread success, jobId:1, handler:com.xxl.job.core.handler.impl.MethodJobHandler@273a5a8a[class com.xxl.job.executor.service.jobhandler.SampleXxlJob#demoJobHandler]
+17:40:33.020 logback [Thread-31] INFO  com.xxl.job.core.thread.JobThread - >>>>>>>>>>> xxl-job JobThread stoped, hashCode:Thread[Thread-31,10,main]
+17:40:33.021 logback [Thread-32] INFO  c.x.j.e.s.jobhandler.SampleXxlJob - demo start
+

@@ -26,7 +26,7 @@ public class FrameLessXxlJobConfig {
     private XxlJobSimpleExecutor xxlJobExecutor = null;
 
     /**
-     * init
+     * init，初始化执行器
      */
     public void initXxlJobExecutor() {
 
